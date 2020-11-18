@@ -1,0 +1,3 @@
+FROM nginx
+COPY ./resp_ok.js /usr/share/nginx/html/
+COPY ./resp_nok.js /usr/share/nginx/html/
