@@ -21,12 +21,12 @@ services:
 
   ms_seguranca:
     build:
-      context: .
-      dockerfile: Dockerfile-ms-seguranca
+      context: mock-security-service
+      dockerfile: Dockerfile
     networks:
       - envoymesh
     ports:
-      - "9090:80"
+      - "9090:8000"
       
 networks:
   envoymesh: {}

@@ -18,10 +18,10 @@ struct Check {
 
 #[post("/", format = "json", data = "<input>")]
 fn validate(input: Json<Check>) -> JsonValue {
-    let verb = input.0.verb;
-    let api = input.0.api;
+    let _verb = input.0.verb;
+    let _api = input.0.api;
     json!({
-        "access": "true",
+        "access": true,
         "message": "Acesso permitido.",
         "scopesUser": [
           10,

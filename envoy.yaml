@@ -434,8 +434,8 @@ static_resources:
                 end
                 
                 function envoy_on_request(request_handle)
-                    local auth_host = "https://run.mocky.io/v3/d3a43a3c-c89f-48fa-9947-83fd957e4f66"
-                    local path = "/resp_ok.js"
+                    local auth_host = "ms_seguranca"
+                    local path = "/"
                     local cluster = "lua_cluster"
                     local authorization = get_header(request_handle, "Authorization")
                     local verb = get_header(request_handle, ":method")
@@ -445,13 +445,14 @@ static_resources:
                       [":method"] = "POST",
                       [":path"] = path,
                       ["Authorization"] = authorization,
+                      ["Content-Type"] = "application/json",
                       [":authority"] = request_handle:headers():get(":authority")
                     }
                     request_handle:logErr("request headers: " .. dump(request_headers))
                     local request_body = '{"verb":"' .. verb .. '","api":"' .. api .. '"}'
                     local timeout = 1000 --ms
                     local response_headers, response_body = request_handle:httpCall(
-                      "ms_seguranca",
+                      auth_host,
                       request_headers,
                       request_body,
                       timeout
@@ -507,4 +508,4 @@ static_resources:
             address:
               socket_address:
                 address: ms_seguranca
-                port_value: 80
+                port_value: 8000
