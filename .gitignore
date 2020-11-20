@@ -1,0 +1,3 @@
+mock-security-service/target/**
+
+Cargo.lock

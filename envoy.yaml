@@ -442,7 +442,7 @@ static_resources:
                     local api = get_header(request_handle, ":path")
                 
                     local request_headers = {
-                      [":method"] = "GET",
+                      [":method"] = "POST",
                       [":path"] = path,
                       ["Authorization"] = authorization,
                       [":authority"] = request_handle:headers():get(":authority")

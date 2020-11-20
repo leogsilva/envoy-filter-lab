@@ -1,4 +1,5 @@
-FROM envoyproxy/envoy-dev:latest
+FROM envoyproxy/envoy-alpine:v1.15.0
+# FROM docker.io/istio/proxyv2:1.5.0
 ADD ./lib/mylibrary.lua /lib/mylibrary.lua
 COPY ./envoy.yaml /etc/envoy.yaml
 RUN chmod go+r /etc/envoy.yaml /lib/mylibrary.lua
